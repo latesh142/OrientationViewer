@@ -39,13 +39,18 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    //register receiver
+    /**
+     * register receiver
+     */
     override fun onResume() {
         super.onResume()
         registerReceiver(mReceiver, mIntentFilter)
     }
 
-    //disconnect service after leaving page and remove braodcast listener
+
+    /**
+     * disconnect service after leaving page and remove broadcast listener
+     */
     override fun onPause() {
         unregisterReceiver(mReceiver)
         if(orientationManager!=null)
@@ -53,7 +58,9 @@ class MainActivity : AppCompatActivity() {
         super.onPause()
     }
 
-    //filter data get from broadcast listener of sensor service
+    /**
+     * filter data get from broadcast listener of sensor service and rotating the black container respective orientation
+     */
     private fun checkFilterAndSetValue(intent: Intent){
         if (intent.action == AppConstants.ACTION_ORIENTATION) {
             var rollValue = intent.getStringExtra(AppConstants.ROLL_VALUE)
