@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">OrientationViewer</string>
+    <string name="roll_label">Roll Value</string>
+    <string name="pitch_label">Pitch Value</string>
 </resources>

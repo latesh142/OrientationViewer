@@ -16,15 +16,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pitch Value"
-            android:textSize="16sp"
+            android:text="@string/pitch_label"
+            android:layout_gravity="center_horizontal"
+            android:textSize="@dimen/text_size"
             android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/pitch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_size"
             android:layout_gravity="center_horizontal"
             android:text="- - - - - -"
             android:textStyle="bold"/>
@@ -32,8 +33,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Roll Value"
-            android:textSize="16sp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/roll_label"
+            android:textSize="@dimen/text_size"
             android:textStyle="bold"/>
 
         <TextView
@@ -42,7 +44,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="- - - - - -"
-            android:textSize="16sp"/>
+            android:textSize="@dimen/text_size"/>
+
+        <View
+            android:id="@+id/container"
+            android:layout_width="@dimen/container_size"
+            android:layout_height="@dimen/container_size"
+            android:background="@color/black"/>
 
     </LinearLayout>
 

@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.IntentFilter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
 import com.example.orientationsensor.service.OrientationManager
 import com.example.orientationsensor.util.AppConstants
@@ -16,12 +17,14 @@ class MainActivity : AppCompatActivity() {
     lateinit var mIntentFilter: IntentFilter
     lateinit var orientationManager: OrientationManager
     lateinit var mReceiver: BroadcastReceiver
+    lateinit var container: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         pitch = findViewById(R.id.pitch)
         roll = findViewById(R.id.roll)
+        container = findViewById(R.id.container)
 
         orientationManager = OrientationManager(this@MainActivity)
         orientationManager.connectToRemoteService()
@@ -57,6 +60,8 @@ class MainActivity : AppCompatActivity() {
             val pitchValue = intent.getStringExtra(AppConstants.PITCH_VALUE)
             pitch.text = pitchValue
             roll.text = rollValue
+            container.rotationX = (pitchValue?.toFloat() ?: 0) as Float
+            container.rotationY = (rollValue?.toFloat() ?: 0) as Float
         }
     }
 }
